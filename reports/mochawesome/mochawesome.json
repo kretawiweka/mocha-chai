@@ -1,0 +1,121 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2020-10-15T13:18:37.812Z",
+    "end": "2020-10-15T13:18:38.152Z",
+    "duration": 340,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "5423a4d2-c482-4db8-9945-0692f1624dbc",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "70ee6725-09a4-4056-809f-9d3adb9d4e4b",
+          "title": "Post List",
+          "fullFile": "/Applications/Projects/playground/mocha-chai/api/test/post-test.js",
+          "file": "/api/test/post-test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "@get As a User, I want to be able to get Post list",
+              "fullTitle": "Post List @get As a User, I want to be able to get Post list",
+              "timedOut": false,
+              "duration": 173,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const response = await page.getPost();\nassert(response.status).to.equal(200);",
+              "err": {},
+              "uuid": "cb2ebfdc-1838-4c3f-adcb-9282f33b7154",
+              "parentUUID": "70ee6725-09a4-4056-809f-9d3adb9d4e4b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "@get As a User, I want to be get post data with correct data type",
+              "fullTitle": "Post List @get As a User, I want to be get post data with correct data type",
+              "timedOut": false,
+              "duration": 164,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "let isCorrectDataType = true;\nconst response = await page.getPost();\nconst data = response.body;\ndata.map((item, index) => {\n  assert(typeof item.userId).to.equal(\"number\");\n  assert(typeof item.id).to.equal(\"number\");\n  assert(typeof item.title).to.equal(\"string\");\n  assert(typeof item.body).to.equal(\"string\");\n});",
+              "err": {},
+              "uuid": "5cf767eb-3f87-4638-97de-93029670a1b9",
+              "parentUUID": "70ee6725-09a4-4056-809f-9d3adb9d4e4b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "cb2ebfdc-1838-4c3f-adcb-9282f33b7154",
+            "5cf767eb-3f87-4638-97de-93029670a1b9"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 337,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 180000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 180000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "8.1.3"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.1.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "reports/mochawesome/"
+      },
+      "version": "5.1.0"
+    }
+  }
+}
