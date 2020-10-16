@@ -10,7 +10,7 @@ const testCase = {
   },
 };
 
-describe(`Post List`, () => {
+describe(`[GET] Posts List`, () => {
   it(`@get ${testCase.positive.getList}`, async () => {
     const response = await page.getPost();
     assert(response.status).to.equal(200);

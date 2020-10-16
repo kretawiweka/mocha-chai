@@ -1,14 +1,14 @@
 {
   "stats": {
-    "suites": 1,
-    "tests": 2,
-    "passes": 2,
+    "suites": 2,
+    "tests": 3,
+    "passes": 3,
     "pending": 0,
     "failures": 0,
-    "start": "2020-10-15T13:18:37.812Z",
-    "end": "2020-10-15T13:18:38.152Z",
-    "duration": 340,
-    "testsRegistered": 2,
+    "start": "2020-10-16T00:07:42.013Z",
+    "end": "2020-10-16T00:07:42.976Z",
+    "duration": 963,
+    "testsRegistered": 3,
     "passPercent": 100,
     "pendingPercent": 0,
     "other": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "5423a4d2-c482-4db8-9945-0692f1624dbc",
+      "uuid": "b47ff604-0467-4457-8e92-bcb9a59e3880",
       "title": "",
       "fullFile": "",
       "file": "",
@@ -27,10 +27,10 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "70ee6725-09a4-4056-809f-9d3adb9d4e4b",
+          "uuid": "31e1d869-081e-4bd5-8c92-b4fd07c03e1a",
           "title": "Post List",
-          "fullFile": "/Applications/Projects/playground/mocha-chai/api/test/post-test.js",
-          "file": "/api/test/post-test.js",
+          "fullFile": "/Applications/Projects/playground/mocha-chai/api/test/get-post.js",
+          "file": "/api/test/get-post.js",
           "beforeHooks": [],
           "afterHooks": [],
           "tests": [
@@ -38,7 +38,7 @@
               "title": "@get As a User, I want to be able to get Post list",
               "fullTitle": "Post List @get As a User, I want to be able to get Post list",
               "timedOut": false,
-              "duration": 173,
+              "duration": 154,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "const response = await page.getPost();\nassert(response.status).to.equal(200);",
               "err": {},
-              "uuid": "cb2ebfdc-1838-4c3f-adcb-9282f33b7154",
-              "parentUUID": "70ee6725-09a4-4056-809f-9d3adb9d4e4b",
+              "uuid": "429fd2f3-65ac-44d4-b6f2-f3fdb5bc0be4",
+              "parentUUID": "31e1d869-081e-4bd5-8c92-b4fd07c03e1a",
               "isHook": false,
               "skipped": false
             },
@@ -56,7 +56,7 @@
               "title": "@get As a User, I want to be get post data with correct data type",
               "fullTitle": "Post List @get As a User, I want to be get post data with correct data type",
               "timedOut": false,
-              "duration": 164,
+              "duration": 152,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -65,21 +65,60 @@
               "context": null,
               "code": "let isCorrectDataType = true;\nconst response = await page.getPost();\nconst data = response.body;\ndata.map((item, index) => {\n  assert(typeof item.userId).to.equal(\"number\");\n  assert(typeof item.id).to.equal(\"number\");\n  assert(typeof item.title).to.equal(\"string\");\n  assert(typeof item.body).to.equal(\"string\");\n});",
               "err": {},
-              "uuid": "5cf767eb-3f87-4638-97de-93029670a1b9",
-              "parentUUID": "70ee6725-09a4-4056-809f-9d3adb9d4e4b",
+              "uuid": "936b267a-5e5a-4dde-9caf-66b7d97fc57c",
+              "parentUUID": "31e1d869-081e-4bd5-8c92-b4fd07c03e1a",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "cb2ebfdc-1838-4c3f-adcb-9282f33b7154",
-            "5cf767eb-3f87-4638-97de-93029670a1b9"
+            "429fd2f3-65ac-44d4-b6f2-f3fdb5bc0be4",
+            "936b267a-5e5a-4dde-9caf-66b7d97fc57c"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 337,
+          "duration": 306,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 180000
+        },
+        {
+          "uuid": "f15d0216-5abc-42dc-9fda-44c0df7d9246",
+          "title": "Post List",
+          "fullFile": "/Applications/Projects/playground/mocha-chai/api/test/post-post.js",
+          "file": "/api/test/post-post.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "@post As a User, I want to get response with same data type after post",
+              "fullTitle": "Post List @post As a User, I want to get response with same data type after post",
+              "timedOut": false,
+              "duration": 651,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const data = {\n  title: \"recomendation\",\n  body: \"motorcycle\",\n  userId: 12,\n};\nconst response = await page.postPost(data);\nassert(typeof response.body.title).to.equal(typeof data.title);\nassert(typeof response.body.body).to.equal(typeof data.body);\nassert(typeof response.body.userId).to.equal(typeof data.userId);",
+              "err": {},
+              "uuid": "c957c92a-bc1f-41e0-8661-ecc1c84a4c59",
+              "parentUUID": "f15d0216-5abc-42dc-9fda-44c0df7d9246",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c957c92a-bc1f-41e0-8661-ecc1c84a4c59"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 651,
           "root": false,
           "rootEmpty": false,
           "_timeout": 180000
